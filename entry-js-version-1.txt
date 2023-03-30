@@ -1,0 +1,63 @@
+const entryForm = document.getElementById('entry-form');
+
+async function saveEntry(event) {
+  event.preventDefault();
+  const formData = new FormData(entryForm);
+  const term = formData.get('term');
+  const definition = formData.get('definition');
+
+  const response = await fetch('/save-entry', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ term, definition }),
+  });
+
+  if (response.ok) {
+    window.location.href = '/index.html';
+  } else {
+    console.error('Failed to save entry:', response.status, response.statusText);
+  }
+}
+
+entryForm.addEventListener('submit', saveEntry);
+
+(async function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const editIndex = urlParams.get('editIndex');
+
+  if (editIndex !== null) {
+    const response = await fetch(`/entries/${editIndex}`);
+    const { term, definition } = await response.json();
+
+    document.getElementById('term').value = term;
+    document.getElementById('definition').value = definition;
+
+    entryForm.removeEventListener('submit', saveEntry);
+    entryForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(entryForm);
+      const term = formData.get('term');
+      const definition = formData.get('definition');
+
+      console.log('Updated term:', term, 'Updated definition:', definition);
+
+      const response = await fetch(`/entries/${editIndex}`);
+        const { id, term, definition } = await response.json();
+        
+      const response = await fetch(`/update-entry/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ term, definition }),
+      });
+            
+      if (response.ok) {
+console.log('Entry updated successfully:', response);
+        window.location.href = '/index.html';
+        
+      } else {
+        console.error('Failed to update entry:', response.status, response.statusText);
+      }
+    });
+  }
+})();

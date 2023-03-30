@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap 5 CSS from CDN -->
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+    crossorigin="anonymous"
+  />
+  <title>Glossary</title>
+
+  <style>
+    body {
+background-color: #273C56 ;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    min-height: 100vh;
+    font-family:Calibri, sans-serif;
+    color: cornsilk;
+  }
+
+  .left, .right {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+  }
+
+  .left {
+    margin-right: 1rem;
+  }
+
+  .right {
+    margin-left: 1rem;
+  }
+
+
+      .term-button {
+          color: white;
+          background-color: #C0392B !important;
+          display: flex;
+          text-align: left;
+          
+          padding-left:4px !important;
+          background: none;
+          border: none;
+          padding: 0;
+          margin: 0;
+          margin-bottom: 5px;
+          font-size: 1rem;
+          cursor: pointer;
+          height: 25px;
+          width: 180px;
+      }
+
+  .term-button:hover {
+    background-color:brown !important;
+  }
+
+  .definition {
+    display: none;
+  }
+
+  .definition.active {
+    display: block;
+    margin-top:100px;
+  }
+.entry-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.entry-controls button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 5px;
+  padding: 10px 24px;
+  cursor: pointer;
+}
+
+.entry-controls button:hover {
+  background-color: #45a049;
+}
+.link-button{
+    margin-right:3px;
+    border-style: solid !important;
+    border-color:aqua;
+
+}
+  </style>
+</head>
+<body>
+
+    <div class="left" id="terms"></div>
+
+    <div class="right" id="definitions"></div>
+
+    <div class="right" id="buttons-container">
+        <button class="link-button" onclick="window.location.href='entry.html'">Add new term</button>
+    </div>
+
+    <div class="right" id="link-button"><a href="entry.html">Add new term</a></div>
+
+
+
+
+    <script src="index.js"></script>
+</body>
+</html>
