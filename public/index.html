@@ -1,140 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Bootstrap 5 CSS from CDN -->
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-    crossorigin="anonymous"
-  />
-  <title>Glossary</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap 5 CSS from CDN -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+          crossorigin="anonymous" />
+    <title>Glossary</title>
 
-  <style>
-      body {
-          background-color: #273C56;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          grid-template-rows: auto 1fr;
-          gap: 0.1rem;
-          min-height: 100vh;
-          font-family: Calibri, sans-serif;
-          color: cornsilk;
-      }
+    <style>
+        body {
+            background-color: #273C56;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-template-rows: auto 1fr;
+            gap: 0.1rem;
+            min-height: 100vh;
+            font-family: Calibri, sans-serif;
+            color: cornsilk;
+        }
 
-      .upper-box {
-          grid-row: 1;
-          padding: 1rem;
-          border: none;
-      }
+        .upper-box {
+            grid-row: 1;
+            padding: 1rem;
+            border: none;
+        }
 
-      .lower-box {
-          grid-row: 2;
-          display: flex;
-          padding: 1rem;
-          border: none;
-      }
+        .lower-box {
+            grid-row: 2;
+            padding: 1rem;
+            border: none;
+        }
 
-/*
-      .leftSubBox {
-          grid-row: 2;
-          grid-column: 1;
-          padding: 1rem;
-          border: none;
-          position: relative;
-      }
+        .leftSubBox {
+            grid-row: 2;
+            grid-column: 1;
+            padding: 1rem;
+            border: none;
+        }
 
-      .rightSubBox {
-          grid-row: 2;
-          grid-column: 2;
-          padding: 1rem;
-          border: none;
-          position: relative;
-      }
-      */
-      .terms {
-          padding: 1rem;
-          border: none;
-          overflow-y: scroll;
-          position: absolute;
-      }
+        .rightSubBox {
+            grid-row: 2;
+            grid-column: 2;
+            padding: 1rem;
+            border: none;
+        }
 
-      .definitions {
-          padding: 1rem;
-          border: none;
-          overflow-y: scroll;
-          position: absolute;
-      }
+        .terms {
+            padding: 1rem;
+            border: none;
+            overflow-y: scroll;
+        }
 
-      .buttons-container {
-          
-          display:inline-block;
-          justify-content: flex-end;
-          padding: 1rem;
-          border: none;
-      }
+        .definitions {
+            padding: 1rem;
+            border: none;
+            overflow-y: scroll;
+        }
 
-      .term-button {
-          color: white;
-          background-color: #C0392B !important;
-          display:flex;
-          text-align: left;
-          background: none;
-          border: none;
-          padding: 0;
-          margin: 0;
-          margin-bottom: 5px;
-          font-size: 1rem;
-          cursor: pointer;
-          height: 25px;
-          width: 180px;
-      }
+        .buttons-container {
+            display: inline-block;
+            justify-content: flex-end;
+            padding: 1rem;
+            border: none;
+        }
 
-          .term-button:hover {
-              background-color: brown !important;
-          }
+        .term-button {
+            color: white;
+            background-color: #C0392B !important;
+            display: flex;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+            margin-bottom: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            height: 25px;
+            width: 180px;
+        }
 
-      .definition {
-          display: none;
-      }
+            .term-button:hover {
+                background-color: brown !important;
+            }
 
-          .definition.active {
-              display: block;
-              margin-top: 100px;
-              
-          }
+        .definition {
+            display: none;
+        }
 
-      .entry-controls {
-          display: flex;
-          justify-content: center;
-          margin-top: 20px;
-      }
+            .definition.active {
+                display: block;
+                margin-top: 0px;
+            }
+        .terms::-webkit-scrollbar,
+        .definitions::-webkit-scrollbar {
+            width: 0.25em;
+        }
 
-          .entry-controls button {
-              background-color: #4CAF50;
-              border: none;
-              color: white;
-              text-align: center;
-              text-decoration: none;
-              display: inline-block;
-              font-size: 14px;
-              margin: 5px;
-              padding: 10px 24px;
-              cursor: pointer;
-              margin-top:50px;
-          }
+        .terms::-webkit-scrollbar-thumb,
+        .definitions::-webkit-scrollbar-thumb {
+            background-color: darkgrey;
+            outline: 1px solid slategrey;
+        }
 
-              .entry-controls button:hover {
-                  background-color: #45a049;
-              }
-
-      .link-button {
-          margin-right: 3px;
-          border-color: aqua;
-      }
-
-  </style>
+        .terms::-webkit-scrollbar-track,
+        .definitions::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 100px;
+        }
+    </style>
 </head>
 <body>
 
@@ -142,13 +118,9 @@
         <button class="link-button" onclick="window.location.href='entry.html'">Add new term</button>
     </div>
 
-    <div class="lower-box">
-        <div id="terms"></div>
-        <div id="definitions"></div>
-    </div>
+    <div class="lower-box leftSubBox" id="terms"></div>
 
-
-
+    <div class="lower-box rightSubBox" id="definitions"></div>
 
     <script src="index.js"></script>
 </body>

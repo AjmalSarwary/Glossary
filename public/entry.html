@@ -1,37 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Bootstrap 5 CSS from CDN -->
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-    crossorigin="anonymous"
-  />
-  <title>Add / Edit Term</title>
-  <style>
-       body {
-background-color: #618195  ;
-    
-    
-    
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-  }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap 5 CSS from CDN -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+          crossorigin="anonymous" />
+   
+
+    <title>Add / Edit Term</title>
+
+    <style>
+        body {
+            background-color: #618195;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: left;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        label {
+            margin-top: 10px;
+            color: white;
+        }
+
+        input,
+        textarea,
+        button {
+            margin-top: 5px;
+        }
+
+        .link-button {
+            position: relative;
+            margin-top: 20px;
+        }
+       
+
+    </style>
+
 </head>
 <body>
-  <h1>Add / Edit Term</h1>
-  <form id="entry-form">
-    <label for="term">Term:</label>
-    <input type="text" id="term" name="term" required>
-    <br>
-    <label for="definition">Definition:</label>
-    <textarea id="definition" name="definition" rows="4" cols="50" required></textarea>
-    <br>
-    <button type="submit">Save</button>
-  </form>
-  <script src="entry.js"></script>
+    <h1>Add / Edit Term</h1>
+    <form id="entry-form">
+        <label for="term">Term:</label>
+        <input type="text" id="term" name="term" required>
+        <br>
+        <label for="definition">Definition:</label>
+        <textarea id="definition" name="definition" rows="8" cols="50" required></textarea>
+        <br>
+        <button type="submit">Save</button>
+    </form>
+    <div class="upper-box" id="buttons-container">
+        <button class="link-button" onclick="window.location.href='index.html'">Back to Glossary</button>
+    </div>
+   
+
+    <script src="entry.js"></script>
 </body>
 </html>

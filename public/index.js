@@ -42,12 +42,19 @@ function showDefinition(index) {
   document.querySelector('.definition.active')?.classList.remove('active');
   document.getElementById(`definition-${index}`).classList.add('active');
 }
-
 async function buildGlossaryUI() {
   const glossary = await fetchGlossary();
+  const termsContainer = document.createElement('div');
+  termsContainer.classList.add('terms');
+  const definitionsContainer = document.createElement('div');
+  definitionsContainer.classList.add('definitions');
+
   const terms = document.getElementById('terms');
   const definitions = document.getElementById('definitions');
   const buttonsContainer = document.getElementById('buttons-container');
+
+  terms.appendChild(termsContainer);
+  definitions.appendChild(definitionsContainer);
 
   // Create edit button
   const editButton = document.createElement('button');
@@ -75,13 +82,13 @@ async function buildGlossaryUI() {
       deleteButton.disabled = false;
       deleteButton.onclick = () => deleteEntry(index);
     };
-    terms.appendChild(termButton);
+    termsContainer.appendChild(termButton);
 
     const definition = document.createElement('div');
     definition.innerHTML = entry.definition;
     definition.id = `definition-${index}`;
     definition.classList.add('definition');
-    definitions.appendChild(definition);
+    definitionsContainer.appendChild(definition);
   });
 
   console.log('Finished building glossary UI');
