@@ -11,6 +11,12 @@ glossaryCache = data;
 }
 
 async function deleteEntry(index) {
+
+    const userConfirmed = window.confirm('Are you sure you want to delete this entry?');
+
+  if (!userConfirmed) {
+    return;
+  }
   const response = await fetch(`/entries/${index}`);
   if (!response.ok) {
     console.error('Failed to fetch entry:', response.status, response.statusText);
@@ -41,13 +47,34 @@ async function buildGlossaryUI() {
   const glossary = await fetchGlossary();
   const terms = document.getElementById('terms');
   const definitions = document.getElementById('definitions');
+  const buttonsContainer = document.getElementById('buttons-container');
+
+  // Create edit button
+  const editButton = document.createElement('button');
+  editButton.textContent = 'Edit';
+  editButton.disabled = true;
+  buttonsContainer.appendChild(editButton);
+
+  // Create delete button
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = 'Delete';
+  deleteButton.disabled = true;
+  buttonsContainer.appendChild(deleteButton);
 
   glossary.forEach((entry, index) => {
     const termButton = document.createElement('button');
     termButton.textContent = entry.term;
     termButton.id = `term-button-${index}`;
     termButton.classList.add('term-button');
-    termButton.onclick = () => showDefinition(index);
+    termButton.onclick = () => {
+      showDefinition(index);
+      editButton.disabled = false;
+      editButton.onclick = () => {
+        window.location.href = `/entry.html?editIndex=${index}`;
+      };
+      deleteButton.disabled = false;
+      deleteButton.onclick = () => deleteEntry(index);
+    };
     terms.appendChild(termButton);
 
     const definition = document.createElement('div');
@@ -55,32 +82,6 @@ async function buildGlossaryUI() {
     definition.id = `definition-${index}`;
     definition.classList.add('definition');
     definitions.appendChild(definition);
-
-    // Create buttons-container if it doesn't exist
-    let buttonsContainer = document.getElementById(`buttons-container-${index}`);
-    if (!buttonsContainer) {
-      buttonsContainer = document.createElement('div');
-      buttonsContainer.id = `buttons-container-${index}`;
-      buttonsContainer.classList.add('buttons-container');
-
-      // Create edit button
-      const editButton = document.createElement('button');
-      editButton.textContent = 'Edit';
-      editButton.onclick = () => {
-        window.location.href = `/entry.html?editIndex=${index}`;
-      };
-      buttonsContainer.appendChild(editButton);
-
-      // Create delete button
-      const deleteButton = document.createElement('button');
-      deleteButton.textContent = 'Delete';
-      deleteButton.onclick = () => deleteEntry(index);
-      buttonsContainer.appendChild(deleteButton);
-
-      // Add buttons-container to the right container
-      const rightContainer = document.querySelector('.right');
-      rightContainer.appendChild(buttonsContainer);
-    }
   });
 
   console.log('Finished building glossary UI');

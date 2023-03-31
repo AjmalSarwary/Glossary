@@ -12,38 +12,74 @@
   <title>Glossary</title>
 
   <style>
-    body {
-background-color: #273C56 ;
-    display: flex;
-    justify-content:flex-start;
-    align-items: center;
-    min-height: 100vh;
-    font-family:Calibri, sans-serif;
-    color: cornsilk;
-  }
+      body {
+          background-color: #273C56;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: auto 1fr;
+          gap: 0.1rem;
+          min-height: 100vh;
+          font-family: Calibri, sans-serif;
+          color: cornsilk;
+      }
 
-  .left, .right {
-    flex: 1;
-    padding: 1rem;
-    border: none;
-  }
+      .upper-box {
+          grid-row: 1;
+          padding: 1rem;
+          border: none;
+      }
 
-  .left {
-    margin-right: 1rem;
-  }
+      .lower-box {
+          grid-row: 2;
+          display: flex;
+          padding: 1rem;
+          border: none;
+      }
 
-  .right {
-    margin-left: 1rem;
-  }
+/*
+      .leftSubBox {
+          grid-row: 2;
+          grid-column: 1;
+          padding: 1rem;
+          border: none;
+          position: relative;
+      }
 
+      .rightSubBox {
+          grid-row: 2;
+          grid-column: 2;
+          padding: 1rem;
+          border: none;
+          position: relative;
+      }
+      */
+      .terms {
+          padding: 1rem;
+          border: none;
+          overflow-y: scroll;
+          position: absolute;
+      }
+
+      .definitions {
+          padding: 1rem;
+          border: none;
+          overflow-y: scroll;
+          position: absolute;
+      }
+
+      .buttons-container {
+          
+          display:inline-block;
+          justify-content: flex-end;
+          padding: 1rem;
+          border: none;
+      }
 
       .term-button {
           color: white;
           background-color: #C0392B !important;
-          display: flex;
+          display:flex;
           text-align: left;
-          
-          padding-left:4px !important;
           background: none;
           border: none;
           padding: 0;
@@ -55,59 +91,61 @@ background-color: #273C56 ;
           width: 180px;
       }
 
-  .term-button:hover {
-    background-color:brown !important;
-  }
+          .term-button:hover {
+              background-color: brown !important;
+          }
 
-  .definition {
-    display: none;
-  }
+      .definition {
+          display: none;
+      }
 
-  .definition.active {
-    display: block;
-    margin-top:100px;
-  }
-.entry-controls {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
+          .definition.active {
+              display: block;
+              margin-top: 100px;
+              
+          }
 
-.entry-controls button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  margin: 5px;
-  padding: 10px 24px;
-  cursor: pointer;
-}
+      .entry-controls {
+          display: flex;
+          justify-content: center;
+          margin-top: 20px;
+      }
 
-.entry-controls button:hover {
-  background-color: #45a049;
-}
-.link-button{
-    margin-right:3px;
-    border-style: solid !important;
-    border-color:aqua;
+          .entry-controls button {
+              background-color: #4CAF50;
+              border: none;
+              color: white;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 14px;
+              margin: 5px;
+              padding: 10px 24px;
+              cursor: pointer;
+              margin-top:50px;
+          }
 
-}
+              .entry-controls button:hover {
+                  background-color: #45a049;
+              }
+
+      .link-button {
+          margin-right: 3px;
+          border-color: aqua;
+      }
+
   </style>
 </head>
 <body>
 
-    <div class="left" id="terms"></div>
-
-    <div class="right" id="definitions"></div>
-
-    <div class="right" id="buttons-container">
+    <div class="upper-box" id="buttons-container">
         <button class="link-button" onclick="window.location.href='entry.html'">Add new term</button>
     </div>
 
-    <div class="right" id="link-button"><a href="entry.html">Add new term</a></div>
+    <div class="lower-box">
+        <div id="terms"></div>
+        <div id="definitions"></div>
+    </div>
 
 
 
