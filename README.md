@@ -64,7 +64,7 @@ SQLite3
 
   6. Start the server:
 
-        PS C:\glossary3000\glossary> npm start
+          PS C:\glossary3000\glossary> npm start
 
   7. Open application:
 
