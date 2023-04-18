@@ -52,15 +52,15 @@ SQLite3
 
   4. Change to the project directory and install dependencies:
     
-        PS C:\glossary3000> cd glossary
+          PS C:\glossary3000> cd glossary
  
   then install npm
   
-        PS C:\glossary3000\glossary> npm install
+          PS C:\glossary3000\glossary> npm install
   
   5. Install database:
   
-        PS C:\glossary3000\glossary> npm install sqlite3
+          PS C:\glossary3000\glossary> npm install sqlite3
 
   6. Start the server:
 
