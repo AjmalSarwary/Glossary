@@ -28,19 +28,24 @@ SQLite3
 
   Install Git:
 
-       From https://git-scm.com/download download and install Git. 
+  From 
+        https://git-scm.com/download 
+  
+  download and install Git. 
   
   Create application folder:
   
-      Open Powershell as Admin and create a folder for the application
+  Open Powershell as Admin and create a folder for the application
       
-          PS C:\> mkdir glossary3000
+         PS C:\> mkdir glossary3000
 
   Clone the repository:
       
-      Change to new directory and close the repository
+  Change to new directory and clone the repository
             
          PS C:> cd glossary3000
+  
+  then clone the repository
            
          PS C:\glossary3000> git clone https://github.com/AjmalSarwary/Glossary.git
 
@@ -59,7 +64,11 @@ SQLite3
 
   Open application:
 
-      Open your web browser and navigate to http://localhost:3000 to view the app.
+  Open your web browser and navigate to 
+  
+     http://localhost:3000 
+     
+  to view the app.
 
 
 #Usage
