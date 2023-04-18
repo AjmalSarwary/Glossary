@@ -29,7 +29,8 @@ SQLite3
   Install Git:
 
   From 
-        https://git-scm.com/download 
+  
+       https://git-scm.com/download 
   
   download and install Git. 
   
