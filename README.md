@@ -26,7 +26,7 @@ SQLite3
 
 #Installation and Setup
 
-  Install Git:
+  1. Install Git:
 
   From 
   
@@ -34,13 +34,13 @@ SQLite3
   
   download and install Git. 
   
-  Create application folder:
+  2. Create application folder:
   
   Open Powershell as Admin and create a folder for the application
       
        PS C:\> mkdir glossary3000
 
-  Clone the repository:
+  3. Clone the repository:
       
   Change to new directory and clone the repository
             
@@ -50,7 +50,7 @@ SQLite3
            
       PS C:\glossary3000> git clone https://github.com/AjmalSarwary/Glossary.git
 
-  Change to the project directory and install dependencies:
+  4. Change to the project directory and install dependencies:
     
      PS C:\glossary3000> cd glossary
  
@@ -58,21 +58,21 @@ SQLite3
   
      PS C:\glossary3000\glossary> npm install
   
-  Install database:
+  5. Install database:
   
      PS C:\glossary3000\glossary> npm install sqlite3
 
-  Start the server:
+  6. Start the server:
 
      PS C:\glossary3000\glossary> npm start
 
-  Open application:
+  7. Open application:
 
   Open your web browser and navigate to 
   
      http://localhost:3000 
      
-  to view the app.
+  to view and interact with the app.
 
 
 #Usage
