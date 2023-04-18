@@ -37,6 +37,10 @@ SQLite3
   Install dependencies:
 
      npm install
+  
+  Install database:
+  
+     npm install sqlite3
 
   Start the server:
 
