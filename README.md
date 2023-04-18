@@ -45,7 +45,7 @@ SQLite3
             
       PS C:> cd glossary3000
   
-  then clone the repository
+  and clone the repository
            
       PS C:\glossary3000> git clone https://github.com/AjmalSarwary/Glossary.git
 
