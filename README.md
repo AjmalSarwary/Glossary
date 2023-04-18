@@ -37,21 +37,24 @@ SQLite3
   
   Open Powershell as Admin and create a folder for the application
       
-         PS C:\> mkdir glossary3000
+       PS C:\> mkdir glossary3000
 
   Clone the repository:
       
   Change to new directory and clone the repository
             
-         PS C:> cd glossary3000
+      PS C:> cd glossary3000
   
   then clone the repository
            
-         PS C:\glossary3000> git clone https://github.com/AjmalSarwary/Glossary.git
+      PS C:\glossary3000> git clone https://github.com/AjmalSarwary/Glossary.git
 
   Change to the project directory and install dependencies:
     
      PS C:\glossary3000> cd glossary
+ 
+  then install npm
+  
      PS C:\glossary3000\glossary> npm install
   
   Install database:
